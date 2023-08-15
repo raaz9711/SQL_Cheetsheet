@@ -41,3 +41,22 @@ UPDATE A
               FROM TableA A JOIN TableB B
               ON A.col1 = B.colx
               WHERE ...
+
+-- get stored Routine 
+select * from INFORMATION_SCHEMA.ROUTINES
+where ROUTINE_TYPE= 'Procedure'
+
+--
+
+IF OBJECT_ID ( 'dbo.getsiteuserbyname', 'P' ) IS NOT NULL   
+    print 'test'
+GO  
+
+--
+SELECT name AS procedure_name
+    , SCHEMA_NAME(schema_id) AS schema_name
+    , type_desc
+    , create_date
+    , modify_date
+FROM sys.procedures;
+
