@@ -60,3 +60,14 @@ SELECT name AS procedure_name
     , modify_date
 FROM sys.procedures;
 
+
+select * from INFORMATION_SCHEMA.ROUTINES
+where ROUTINE_TYPE= 'TRIGGER'
+
+
+IF OBJECT_ID ( 'dbo.TRG_Notify', 'TR' ) IS NOT NULL   
+    print 'test'
+GO  
+
+
+EXEC sp_helptrigger 'dbo.Country';
